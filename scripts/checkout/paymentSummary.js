@@ -26,7 +26,7 @@ let html=``;
  taxAmount=tax(subTotal);
  total=taxAmount+subTotal;
  document.querySelector('.checkout-header-middle-section').innerHTML=`Checkout (<a class="return-to-home-link"
- href="amazon.html">${quantity} items</a>)`
+ href="index.html">${quantity} items</a>)`
   html=`<div class="payment-summary-title">
   Order Summary
 </div>
