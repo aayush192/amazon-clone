@@ -57,3 +57,10 @@ export function updateDeliveryOption(productId,deliveryOptionId){
   matchingItem.deliveryOptionId=deliveryOptionId;
  saveToStorage();
 }
+export function cartQuantity(){
+  let productQuantity=0;
+  cart.forEach((product)=>{
+    productQuantity+=product.quantity;
+  });
+  return productQuantity;
+}

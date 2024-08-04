@@ -30,7 +30,7 @@ js-cart-item-${matchingItem.id}'>
 
  <div class="cart-item-details-grid">
   <img class="product-image"
-    src=${matchingItem.image}>
+    src=${matchingItem.image} loading="lazy">
 
   <div class="cart-item-details">
     <div class="product-name">

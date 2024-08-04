@@ -4,6 +4,7 @@ import { getDeliveryOption } from "../../data/deliveryoptions.js";
 import { currency ,tax} from "../utils/money.js";
 import { renderOrderSummary } from "./orderSummary.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+import { dateAmount, orderProducts } from "../order.js";
 const today = dayjs();
 const date = today.format("dddd, MMMM D");
 export function renderPaymentSummary() {
@@ -26,7 +27,7 @@ let html=``;
  taxAmount=tax(subTotal);
  total=taxAmount+subTotal;
  document.querySelector('.checkout-header-middle-section').innerHTML=`Checkout (<a class="return-to-home-link"
- href="amazon.html">${quantity} items</a>)`
+ href="index.html">${quantity} items</a>)`
   html=`<div class="payment-summary-title">
   Order Summary
 </div>
@@ -74,7 +75,7 @@ document.querySelector('.button-primary').addEventListener("click",()=>{
   });
  dateAmount(date,total);
   orderProducts(orderedProduct);
- emptyCart();
+  emptyCart();
   renderOrderSummary();
   renderPaymentSummary();
 })

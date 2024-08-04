@@ -23,7 +23,7 @@ products.forEach((product) => {
   <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
-              src="${product.image}">
+              src="${product.image}" loading="lazy">
           </div>
 
           <div class="product-name limit-text-to-2-lines">
@@ -32,7 +32,7 @@ products.forEach((product) => {
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="ratings/rating-${product.rating.stars * 10}.png">
+              src="ratings/rating-${product.rating.stars * 10}.png" loading="lazy">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
@@ -99,7 +99,7 @@ newProduct.forEach((product)=>{
   <div class="product-container">
           <div class="product-image-container">
             <img class="product-image"
-              src="${product.image}">
+              src="${product.image}" loading="lazy">
           </div>
 
           <div class="product-name limit-text-to-2-lines">
@@ -108,7 +108,7 @@ newProduct.forEach((product)=>{
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="ratings/rating-${product.rating.stars * 10}.png">
+              src="ratings/rating-${product.rating.stars * 10}.png" loading="lazy">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
