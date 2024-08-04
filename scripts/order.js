@@ -4,6 +4,8 @@ import { currency } from "./utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
 let cartProduct=[];  
 let dateTotal=[];
+saveAtStorage();
+saveInStorage();
 console.log(typeof(dateTotal));
 function saveInStorage(){
     localStorage.setItem('orderProduct',JSON.stringify(cartProduct));
