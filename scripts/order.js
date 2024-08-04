@@ -11,7 +11,7 @@ function saveInStorage(){
 function saveAtStorage(){
     localStorage.setItem('dateTotal',JSON.stringify(dateTotal));
 }
-cartProduct=JSON.parse(localStorage.getItem('orderProduct'));
+cartProduct=JSON.parse(localStorage.getItem('orderProduct'))||[];
 
 dateTotal=JSON.parse(localStorage.getItem('dateTotal'))||[];
 export function dateAmount(date,amount){
