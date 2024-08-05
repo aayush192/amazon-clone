@@ -1,7 +1,7 @@
 import { cart, addToCart } from "../data/cart.js";
 import { products } from "../data/products.js";
 import { currency } from "./utils/money.js";
-function updatecart() {
+export function updatecart() {
   let cartQuantity = 0;
   cart.forEach((cartitem) => {
     if (cartitem.quantity === undefined) {

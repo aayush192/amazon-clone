@@ -1,4 +1,5 @@
 import { products } from "../data/products.js";
+import { addToCart } from "../data/cart.js";
 import { deliveryOptions } from "../data/deliveryoptions.js";
 import { currency } from "./utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
@@ -15,13 +16,14 @@ cartProduct=JSON.parse(localStorage.getItem('orderProduct'))||[];
 
 dateTotal=JSON.parse(localStorage.getItem('dateTotal'))||[];
 export function dateAmount(date,amount){
-    if(dateTotal.length>0){
+  let matchingItem;
         dateTotal.forEach((sum)=>{
         if(sum.date===date){
-            sum.total+=amount;
-        }
-        
+           matchingItem=sum;
+        }   
     });
+    if(matchingItem){
+      matchingItem.total+=amount;
     }
     else{
 dateTotal.push({
@@ -115,7 +117,8 @@ cartProduct.forEach((cartItem)=>{
           <div class="product-quantity">
             Quantity: ${cartItem.quantity}
           </div>
-          <button class="buy-again-button button-primary">
+          <button class="buy-again-button button-primary"
+          data-product-id='${product.id}'>
             <img class="buy-again-icon" src="images/icons/buy-again.png">
             <span class="buy-again-message">Buy it again</span>
           </button>
@@ -130,7 +133,6 @@ cartProduct.forEach((cartItem)=>{
         </div>
       `;
    }
-
     })
     }
 })
@@ -157,6 +159,15 @@ const deliveryDate = today.add(deliveryOption.deliveryDays, "days");
 const dateString = deliveryDate.format(`dddd, MMMM D`);
 return dateString;
 }
+
+ export function removeOrderProduct(){
+  cartProduct=[];
+  dateTotal=[];
+  saveAtStorage();
+  saveInStorage();
+  }
+
+  
 
 
 
