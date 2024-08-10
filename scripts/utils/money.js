@@ -1,5 +1,5 @@
 export function currency(priceCents){
-    priceCents=Math.ceil(priceCents);
+    priceCents=Math.round(priceCents);
     return ((priceCents/100).toFixed(2));
 }
 export function tax(subTotal){
