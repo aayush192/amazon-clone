@@ -31,7 +31,6 @@ var getJasmineRequireObj = (function(jasmineGlobal) {
   ) {
     if (typeof global !== 'undefined') {
       jasmineGlobal = global;
-    } else {
       jasmineGlobal = {};
     }
     jasmineRequire = exports;

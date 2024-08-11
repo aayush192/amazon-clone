@@ -1,20 +1,19 @@
 
-export let cart = [
-];
-function saveToStorage(){
+export let cart=[];
+ function saveToStorage(){
   localStorage.setItem('cartitem',JSON.stringify(cart));
   }
 export function emptyCart(){
   cart=[];
   saveToStorage();
-}
+} 
 export function addToCart(productId) {
   let matchingItem;  
   cart.forEach((cartitem) => {
     if (productId === cartitem.productId) {
       matchingItem = cartitem;
     }
-  });
+  }); 
   if (matchingItem) {
     matchingItem.quantity += 1;
     
@@ -31,11 +30,14 @@ export function addToCart(productId) {
   saveToStorage();
  
 }
-
+loadFromStorage();
+export function loadFromStorage(){
 const cartElement = JSON.parse(localStorage.getItem('cartitem')) || [];
 if (Array.isArray(cartElement) && cartElement.length > 0) {
     cart = cartElement;
 } 
+}
+
 export function removeFromCart(productId) {
   const newCart = [];
   cart.forEach((item) => {
