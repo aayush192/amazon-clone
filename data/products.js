@@ -35,6 +35,16 @@ class Product{
   }
 }
 
+// const date=new Date();
+// console.log(date.toLocaleDateString())
+// console.log(date);
+/* 
+function logThis(){
+  console.log(this);
+}
+logThis();
+logThis.call('hello'); */
+
 class Clothing extends Product{
 sizeChartLink;
 
