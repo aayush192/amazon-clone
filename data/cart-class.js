@@ -1,22 +1,22 @@
     class Cart{
         cartItems=[];
-    localStorageKey;
+    #localStorageKey;
 
   constructor(localStorageKey){
-    this.localStorageKey=localStorageKey;
-    this.loadFromStorage();
+    this.#localStorageKey=localStorageKey;
+    this.#loadFromStorage();
   }
+ 
 
 
-
-     loadFromStorage() {
-            const cartElement = JSON.parse(localStorage.getItem(this.localStorageKey)) || [];
+     #loadFromStorage() {
+            const cartElement = JSON.parse(localStorage.getItem(this.#localStorageKey)) || [];
             if (Array.isArray(cartElement) && cartElement.length > 0) {
             this.cartItems = cartElement;
          } 
          };
          saveToStorage(){
-            localStorage.setItem(this.localStorageKey,JSON.stringify(this.cartItems));
+            localStorage.setItem(this.#localStorageKey,JSON.stringify(this.cartItems));
            };
            emptyCart(){
             this.cartitem=[];
