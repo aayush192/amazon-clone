@@ -37,7 +37,7 @@ js-cart-item-${matchingItem.id}'>
       ${matchingItem.name}
     </div>
     <div class="product-price">
-      $${(currency(matchingItem.priceCents)*cartItem.quantity).toFixed(2)}
+      $${(matchingItem.getPrice()*cartItem.quantity).toFixed(2)}
     </div>
     <div class="product-quantity">
       <span>
