@@ -1,10 +1,9 @@
 import { cart, addToCart } from "../data/cart.js";
-import { products ,loadFromBackend} from "../data/products.js";
+import { products ,loadFromBackend, displayData,extraInfo} from "../data/products.js";
 import { currency } from "./utils/money.js";
 
-loadFromBackend(renderProductGrid);
-
-function updatecart() {
+displayData(renderProductGrid);
+export function updatecart() {
   let cartQuantity = 0;
   cart.forEach((cartitem) => {
     if (cartitem.quantity === undefined) {
@@ -16,7 +15,7 @@ function updatecart() {
   document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
 }
 
-export function renderProductGrid(){
+function renderProductGrid(){
 
 let productsHTML = "";
 
@@ -35,14 +34,14 @@ function homeProducts(product){
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="${product.getStarsUrl()}" loading="lazy">
+              src="ratings/rating-${product.rating.stars*10}.png" loading="lazy">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${product.getPrice()}
+            $${currency(product.priceCents)}
           </div>
 
           <div class="product-quantity-container">
@@ -88,6 +87,7 @@ search=document.querySelector('.search-bar').value;
 products.forEach((product)=>{
 product.keywords.forEach((keyword)=>{
 if(keyword===search){
+  const extraValue=extraInfo(product);
 newProduct.push({
   id:product.id,
   image: product.image,
@@ -96,9 +96,11 @@ newProduct.push({
     stars: product.rating.stars,
     count:product.rating.count
   },
-  priceCents:product.priceCents
+  priceCents:product.priceCents,
+  extraInfoHtml(){
+    return extraInfo;
+  }
 })
-return;
 }
 })
 

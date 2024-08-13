@@ -17,6 +17,7 @@ class Product{
   #name;
   #rating;
   #priceCents;
+  #keywords;
 
   constructor(productDetails){
     this.id=productDetails.id;
@@ -24,13 +25,8 @@ class Product{
     this.name=productDetails.name;
     this.rating=productDetails.rating;
     this.priceCents=productDetails.priceCents;
+    this.keywords=productDetails.keywords;
   };
-  getStarsUrl(){
-    return `ratings/rating-${this.rating.stars * 10}.png`;
-  };
-  getPrice(){
-   return `${currency(this.priceCents)}`;
-  }
   extraInfoHtml(){
     return '';
   }
@@ -56,7 +52,7 @@ constructor(productDetails){
 
 
 extraInfoHtml(){
-  return  `<a href='${this.sizeChartLink}' target="_blank">  Size Chart </a>`;
+  return `<a href='${this.sizeChartLink}' target="_blank">  Size Chart </a>`;
 }
 };
 
@@ -84,6 +80,22 @@ export function loadFromBackend(fun){
 }
 
 
+export function displayData(disp){
+  new Promise((resolve)=>{
+    loadFromBackend(()=>{
+      resolve();
+    })
+  }).then(()=>{
+   disp();
+  })
+}
+
+
+export function extraInfo(product){
+  return product instanceof Clothing 
+  ? 
+  `<a href='${product.sizeChartLink}' target="_blank">  Size Chart </a>`: '';
+ }
 /* 
 export const products = [
   {

@@ -1,8 +1,10 @@
 import { ordered ,removeOrderProduct } from "../order.js";
 import { cartQuantity } from "../../data/cart.js";
-import { loadFromBackend} from "../../data/products.js";
+import {displayData} from "../../data/products.js";
 
-loadFromBackend(ordered);
+displayData(()=>{
+    ordered();
+});
 let quantity=cartQuantity();
 document.querySelector('.cart-quantity').innerHTML=quantity;
 
