@@ -1,10 +1,11 @@
 import { ordered ,removeOrderProduct } from "../order.js";
 import { cartQuantity } from "../../data/cart.js";
-let html='';
-html=ordered();
+import { loadFromBackend} from "../../data/products.js";
+
+loadFromBackend(ordered);
 let quantity=cartQuantity();
 document.querySelector('.cart-quantity').innerHTML=quantity;
-document.querySelector('.orders-grid-js').innerHTML=html;
+
 document.querySelector('.reset').addEventListener("click",()=>{
 removeOrderProduct();
 })

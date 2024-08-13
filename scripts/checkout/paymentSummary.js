@@ -1,5 +1,5 @@
 import { cart ,emptyCart} from "../../data/cart.js";
-import { getProduct } from "../../data/products.js";
+import { getProduct} from "../../data/products.js";
 import { getDeliveryOption } from "../../data/deliveryoptions.js";
 import { currency ,tax} from "../utils/money.js";
 import { renderOrderSummary } from "./orderSummary.js";
@@ -74,7 +74,9 @@ document.querySelector('.button-primary').addEventListener("click",()=>{
     })
   });
  dateAmount(date,total);
-  orderProducts(orderedProduct);
+
+
+ orderProducts(orderedProduct);
   emptyCart();
   renderOrderSummary();
   renderPaymentSummary();

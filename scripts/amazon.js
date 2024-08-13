@@ -1,7 +1,10 @@
 import { cart, addToCart } from "../data/cart.js";
-import { products } from "../data/products.js";
+import { products ,loadFromBackend} from "../data/products.js";
 import { currency } from "./utils/money.js";
-export function updatecart() {
+
+loadFromBackend(renderProductGrid);
+
+function updatecart() {
   let cartQuantity = 0;
   cart.forEach((cartitem) => {
     if (cartitem.quantity === undefined) {
@@ -13,7 +16,7 @@ export function updatecart() {
   document.querySelector(".js-cart-quantity").innerHTML = cartQuantity;
 }
 
-
+export function renderProductGrid(){
 
 let productsHTML = "";
 
@@ -124,3 +127,4 @@ document.querySelectorAll(".js-add-to-cart").forEach((button) => {
 });
 };
 addInCart();
+}

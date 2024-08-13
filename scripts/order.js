@@ -1,8 +1,9 @@
-import { products } from "../data/products.js";
+import { products} from "../data/products.js";
 import { addToCart } from "../data/cart.js";
 import { deliveryOptions } from "../data/deliveryoptions.js";
 import { currency } from "./utils/money.js";
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
+
 let cartProduct=[];  
 let dateTotal=[];
 console.log(typeof(dateTotal));
@@ -136,13 +137,14 @@ cartProduct.forEach((cartItem)=>{
     })
     }
 })
+
 lowerhtml=`</div>
 </div>`;
 totalHTML+=html+middlehtml+lowerhtml;
 middlehtml='';
 lowerhtml='';
 })
-return totalHTML;
+document.querySelector('.orders-grid-js').innerHTML= totalHTML;
 }
 
 
