@@ -98,7 +98,7 @@ newProduct.push({
   },
   priceCents:product.priceCents,
   extraInfoHtml(){
-    return extraInfo;
+    return extraValue;
   }
 })
 }

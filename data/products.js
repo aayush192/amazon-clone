@@ -92,10 +92,13 @@ export function displayData(disp){
 
 
 export function extraInfo(product){
-  return product instanceof Clothing 
-  ? 
-  `<a href='${product.sizeChartLink}' target="_blank">  Size Chart </a>`: '';
+  if(product instanceof Clothing ){
+  return `<a href='${product.sizeChartLink}' target="_blank">  Size Chart </a>`;
  }
+ else{
+  return '';
+ }
+}
 /* 
 export const products = [
   {
