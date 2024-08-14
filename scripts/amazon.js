@@ -1,5 +1,5 @@
 import { cart, addToCart } from "../data/cart.js";
-import { products ,loadFromBackend, displayData,extraInfo} from "../data/products.js";
+import { products , displayData} from "../data/products.js";
 import { currency } from "./utils/money.js";
 
 displayData(renderProductGrid);
@@ -34,14 +34,14 @@ function homeProducts(product){
 
           <div class="product-rating-container">
             <img class="product-rating-stars"
-              src="ratings/rating-${product.rating.stars*10}.png" loading="lazy">
+              src="${product.getRatingUrl()}" loading="lazy">
             <div class="product-rating-count link-primary">
               ${product.rating.count}
             </div>
           </div>
 
           <div class="product-price">
-            $${currency(product.priceCents)}
+            $${product.getPrice()}
           </div>
 
           <div class="product-quantity-container">
@@ -87,20 +87,7 @@ search=document.querySelector('.search-bar').value;
 products.forEach((product)=>{
 product.keywords.forEach((keyword)=>{
 if(keyword===search){
-  const extraValue=extraInfo(product);
-newProduct.push({
-  id:product.id,
-  image: product.image,
-  name: product.name,
-  rating: {
-    stars: product.rating.stars,
-    count:product.rating.count
-  },
-  priceCents:product.priceCents,
-  extraInfoHtml(){
-    return extraValue;
-  }
-})
+newProduct.push(product);
 }
 })
 

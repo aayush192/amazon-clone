@@ -27,6 +27,12 @@ class Product{
     this.priceCents=productDetails.priceCents;
     this.keywords=productDetails.keywords;
   };
+  getPrice(){
+    return currency(this.priceCents);
+  }
+  getRatingUrl(){
+    return `ratings/rating-${this.rating.stars*10}.png`
+  }
   extraInfoHtml(){
     return '';
   }
@@ -91,14 +97,6 @@ export function displayData(disp){
 }
 
 
-export function extraInfo(product){
-  if(product instanceof Clothing ){
-  return `<a href='${product.sizeChartLink}' target="_blank">  Size Chart </a>`;
- }
- else{
-  return '';
- }
-}
 /* 
 export const products = [
   {
