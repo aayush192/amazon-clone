@@ -1,8 +1,8 @@
 import { ordered ,removeOrderProduct } from "../order.js";
 import { cartQuantity } from "../../data/cart.js";
-import {displayData} from "../../data/products.js";
+import {loadProductFetch} from "../../data/products.js";
 
-displayData(()=>{
+loadProductFetch().then(()=>{
     ordered();
 });
 let quantity=cartQuantity();

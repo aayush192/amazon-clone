@@ -1,8 +1,9 @@
 import { cart, addToCart } from "../data/cart.js";
-import { products , displayData} from "../data/products.js";
+import { products ,loadProductFetch} from "../data/products.js";
 import { currency } from "./utils/money.js";
-
-displayData(renderProductGrid);
+loadProductFetch().then(()=>{
+  renderProductGrid();
+});
 export function updatecart() {
   let cartQuantity = 0;
   cart.forEach((cartitem) => {
