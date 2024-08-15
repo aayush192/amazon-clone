@@ -6,7 +6,13 @@ import { loadCart } from "../data/cart.js";
 // import '../data/backend-practice.js';
 
 async function loadPage(){
-    await loadProductFetch();
+    try{
+        await loadProductFetch();
+    } catch(error){
+        console.log(`${error} . unexpected error`);
+       
+    }
+   
     renderOrderSummary();
     renderPaymentSummary();
 }

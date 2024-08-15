@@ -80,7 +80,10 @@ export function loadProductFetch(){
     
     });
   
-  })
+  })/* .catch((error)=>{
+    console.log(error);
+    console.log('unexpected error');
+  }) */
   return promise;
 }
 
