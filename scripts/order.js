@@ -126,7 +126,7 @@ cartProduct.forEach((cartItem)=>{
         </div>
 
         <div class="product-actions">
-          <a href="tracking.html">
+          <a href="tracking.html?orderId=${product.id}&productno=${cartItem.quantity}&date=${sum.date}">
             <button class="track-package-button button-secondary">
               Track package
             </button>

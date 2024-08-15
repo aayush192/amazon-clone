@@ -57,9 +57,9 @@ let html=``;
   <div class="payment-summary-money">$${currency(total)}</div>
 </div>
 
-<button class="place-order-button button-primary">
-  Place your order
-</button>`;
+<a href="orders.html"><button class="place-order-button button-primary">
+Place your order
+</button></a>`;
 document.querySelector('.payment-summary').innerHTML=html;
 document.querySelector('.button-primary').addEventListener("click",()=>{
   
